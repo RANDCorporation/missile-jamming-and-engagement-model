@@ -1,93 +1,149 @@
-# Missile Jamming and Engagement Model
+# Missile Jamming and Engagement Model (MJEM)
 
+## Introduction
 
+The Missile Jamming and Engagement Model (MJEM) estimates measures of performance and a measure of effectiveness for an air-launched missile engagement against a target as a function of position, navigation, and timing (PNT) information available to the missile. MJEM was developed to help assess the dependence of missiles on airborne or space-based signals for success in engagements under conditions where those signals may be jammed or otherwise degraded.
 
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-* [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://code.rand.org/jgazis/missile-jamming-and-engagement-model.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-* [Set up project integrations](https://code.rand.org/jgazis/missile-jamming-and-engagement-model/-/settings/integrations)
-
-## Collaborate with your team
-
-* [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+This model analyzes the accumulation of position errors from multiple sources including GPS jamming, inertial navigation system (INS) drift, target location errors (TLE), and in-flight target updates (IFTU) under radio frequency jamming conditions. The model outputs include jamming ranges, RMS position errors, and probability that the target remains within the seeker's field of regard (FOR).
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+
+### Requirements
+
+- Python 3.11 or higher
+- Required packages:
+  - numpy
+  - matplotlib
+
+### Setup
+
+1. Clone or download this repository
+2. Install dependencies:
+   ```bash
+   pip install numpy matplotlib
+   ```
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+MJEM is designed to run batch analyses using a CSV "run matrix" file containing input parameters for multiple scenarios.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+### Basic Usage
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+1. **Prepare your input file**: Create a CSV file with the required input parameters. See `MJEM_RunMatrix_ReportExamples.csv` for the correct format and an example with unclassified parameters.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+2. **Configure the code**: Edit `main_mjem.py` to specify your input and output filenames:
+   ```python
+   RunMatrixFilename = "MJEM_RunMatrix_ReportExamples.csv"
+   ResultsFilename = "MJEM_Results_ReportExamples.csv"
+   FigFilename = "MJEM_Results_ReportExamples.jpg"
+   ```
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+3. **Run the model**:
+   ```bash
+   python main_mjem.py
+   ```
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+4. **Review results**: The model generates:
+   - A CSV file with numerical results (MOPs and MOE)
+   - JPG figures showing position error over time for each case (saved in `Figures/` directory)
 
-## License
-For open source projects, say how it is licensed.
+### Input Parameters
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+The input CSV file must include the following columns for each run case:
+- Case number and description
+- Missile velocity, launch range, seeker parameters
+- Target location error and evasive maneuver parameters
+- GPS parameters (velocity, received power, jamming threshold, CRPA antenna characteristics)
+- IFTU parameters (latency, antenna characteristics, frequency hopping gain)
+- Jammer parameters (GPS and IFTU jammer ERP)
+- Flags for GPS denied and IFTU denied scenarios
+
+### Output
+
+For each case, MJEM produces:
+- **GPS Jamming Range** (km): The range at which GPS signals are jammed
+- **IFTU Jamming Range** (km): The range at which IFTU signals are jammed
+- **RMS Position Error** (km): Root mean square position error at seeker acquisition
+- **Probability Target is in FOR**: Probability the target remains within the seeker's field of regard
+- **Figure**: Visualization showing position error accumulation over time and range
+
+## Code Structure
+
+The implementation consists of four Python modules:
+
+1. **brien_iftu.py**: Defines the `InFlightTargetUpdate` class that implements mathematical formulas for IFTU contributions to RMS position error.
+
+2. **brien_ins.py**: Defines the `InertialNavigationSystem` class that implements mathematical formulas for INS contributions to RMS position error.
+
+3. **brien_mjem.py**: Defines the main `MJEM` class representing a complete missile engagement. Includes member objects for IFTU and INS, and methods to calculate GPS/INS jamming ranges, flight times, position error accumulation, and MOPs/MOE.
+
+4. **main_mjem.py**: The code entry point. Reads the input CSV run matrix, processes each case, generates figures, and writes results to output files.
+
+## Data
+
+An example input file `MJEM_RunMatrix_ReportExamples.csv` is included with unclassified parameters demonstrating six scenarios:
+- P(Y) Code GPS with various antenna configurations
+- M Code (Spot) GPS with phased array antennas
+- GPS denied scenarios
+- IFTU denied scenarios
+- Different target location error (TLE) values
+
+Users must create their own CSV input files following this format for their specific analysis cases.
+
+## Project Information
+
+This research was conducted for two projects:
+1. Commissioned by HAF A2/6L as part of fiscal year 2024 project "Ensuring Successful Electromagnetic Operations in a Complex, Contested, and Congested Electromagnetic Environment"
+2. Commissioned by SSC/SZ-BC as part of fiscal year 2024 project "Kill Chain Analysis and Support to the USSF and USAF"
+
+Both projects were conducted within the Force Modernization and Employment Program of RAND Project AIR FORCE (PAF).
+
+This work was originally shared with the Department of the Air Force on September 26, 2024. It was published to the rand.org website on March 7, 2025
+
+## References
+
+For detailed methodology, mathematical formulations, and analysis results, see:
+
+Brien Alkire. *Missile Jamming and Engagement Model*. RAND Corporation, RR-A3150-2, 2025. https://www.rand.org/pubs/research_reports/RRA3150-2.html
+
+The report provides comprehensive background on:
+- Link budget analysis for GPS and IFTU signals under jamming
+- Position error accumulation modeling
+- Probability calculations for target acquisition
+- Example scenarios and sensitivity analyses
+
+## Assumptions and Limitations
+
+- The model assumes basic probability and statistics knowledge and familiarity with link budget analysis
+- Users should have the technical skills to create input CSV files and interpret graphical and numerical results
+- No graphical user interface is provided; operation requires direct editing of Python files and command-line execution
+- The model is designed for long-range air-launched missile scenarios in RF jamming environments
+
+## Copyright and License
+
+Copyright (C) 2025 RAND Corporation. This code is made available under the MIT license. See LICENSE file for details.
+
+## Author and Citation
+
+**Author:** Brien Alkire (brien@rand.org), RAND Corporation
+
+**To cite this software:**
+
+Brien Alkire. *Missile Jamming and Engagement Model*. RAND Corporation, RR-A3150-2, 2025. https://www.rand.org/pubs/research_reports/RRA3150-2.html
+
+**BibTeX:**
+```bibtex
+@techreport{Alkire2025MJEM,
+  author = {Alkire, Brien},
+  title = {Missile Jamming and Engagement Model},
+  institution = {RAND Corporation},
+  year = {2025},
+  type = {Research Report},
+  number = {RR-A3150-2},
+  url = {https://www.rand.org/pubs/research_reports/RRA3150-2.html}
+}
+```
+
+---
+
+*For questions about this code, contact opensource@rand.org*
