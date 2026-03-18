@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Missile Jamming and Engagement Model (MJEM) estimates measures of performance and a measure of effectiveness for an air-launched missile engagement against a target as a function of position, navigation, and timing (PNT) information available to the missile. MJEM was developed to help assess the dependence of missiles on airborne or space-based signals for success in engagements under conditions where those signals may be jammed or otherwise degraded.
+The Missile Jamming and Engagement Model (MJEM) estimates measures of performance and a measure of effectiveness for an air-launched missile engagement against a target as a function of position, navigation, and timing (PNT) information, and information about the location of the target, available to the missile. MJEM was developed to help assess the dependence of missiles on airborne or space-based signals for success in engagements under conditions where those signals may be jammed or otherwise degraded.
 
 This model analyzes the accumulation of position errors from multiple sources including GPS jamming, inertial navigation system (INS) drift, target location errors (TLE), and in-flight target updates (IFTU) under radio frequency jamming conditions. The model outputs include jamming ranges, RMS position errors, and probability that the target remains within the seeker's field of regard (FOR).
 
