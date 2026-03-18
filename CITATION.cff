@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Alkire"
+    given-names: "Brien"
+    email: "brien@rand.org"
+    affiliation: "RAND Corporation"
+title: "Missile Jamming and Engagement Model"
+version: "1.0.0"
+date-released: "2024-09-26"
+url: "https://github.com/RANDCorporation/missile-jamming-engagement-model"
+repository-code: "https://github.com/RANDCorporation/missile-jamming-engagement-model"
+keywords:
+  - missile-engagement
+  - jamming
+  - position-navigation-timing
+  - GPS
+  - IFTU
+  - defense-analysis
+  - kill-chain
+license: MIT
+references:
+  - type: report
+    authors:
+      - family-names: "Alkire"
+        given-names: "Brien"
+    title: "Missile Jamming and Engagement Model"
+    institution:
+      name: "RAND Corporation"
+    year: 2024
+    number: "RR-A3150-2"
+    url: "https://www.rand.org/pubs/research_reports/RRA3150-2.html"
