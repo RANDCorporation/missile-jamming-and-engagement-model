@@ -146,4 +146,3 @@ Brien Alkire. *Missile Jamming and Engagement Model*. RAND Corporation, RR-A3150
 
 ---
 
-*For questions about this code, contact opensource@rand.org*
