@@ -2,7 +2,7 @@
 """
 Created on Wed May 29 07:05:16 2024
 
-@author: Brien Alkire, brien@rand.org
+@author: Brien Alkire, RAND, brien@rand.org
 
 This is the primary code entry point where the user can adjust the input
 data and run the routines to generate results which are output in a .csv
