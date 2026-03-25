@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed May 29 07:04:38 2024
-@author: Brien Alkire, brien@rand.org
+@author: Brien Alkire, RAND, brien@rand.org
 
 This code implements a class for modeling an in-flight target update (IFTU).
 Member data include the root-mean-square (RMS) target location error resulting

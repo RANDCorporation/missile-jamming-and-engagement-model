@@ -2,7 +2,7 @@
 """
 Created on Wed May 29 07:04:38 2024
 
-@author: Brien Alkire, brien@rand.org
+@author: Brien Alkire, RAND, brien@rand.org
 """
 
 import numpy as np
