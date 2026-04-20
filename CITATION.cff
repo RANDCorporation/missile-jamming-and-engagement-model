@@ -1,32 +1,28 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
-authors:
-  - family-names: "Alkire"
-    given-names: "Brien"
-    email: "brien@rand.org"
-    affiliation: "RAND Corporation"
+message: "If you use this software, please cite the related report as below."
 title: "Missile Jamming and Engagement Model"
-version: "1.0.0"
-date-released: "2024-09-26"
-url: "https://github.com/RANDCorporation/missile-jamming-engagement-model"
-repository-code: "https://github.com/RANDCorporation/missile-jamming-engagement-model"
-keywords:
-  - missile-engagement
-  - jamming
-  - position-navigation-timing
-  - GPS
-  - IFTU
-  - defense-analysis
-  - kill-chain
+type: software
+authors:
+  - family-names: Alkire
+    given-names: Brien
+    email: brien@rand.org
+    affiliation: RAND Corporation
+repository-code: "https://github.com/RAND-Corporation/Missile-Jamming-and-Engagement-Model"
 license: MIT
-references:
-  - type: report
-    authors:
-      - family-names: "Alkire"
-        given-names: "Brien"
-    title: "Missile Jamming and Engagement Model"
-    institution:
-      name: "RAND Corporation"
-    year: 2024
-    number: "RR-A3150-2"
-    url: "https://www.rand.org/pubs/research_reports/RRA3150-2.html"
+preferred-citation:
+  type: report
+  title: "A Missile Jamming and Engagement Model"
+  authors:
+    - family-names: Alkire
+      given-names: Brien
+    - family-names: Nacouzi
+      given-names: George
+    - family-names: Aguirre
+      given-names: Jair
+    - family-names: Dolan
+      given-names: Brian
+  institution:
+    name: RAND Corporation
+  year: 2025
+  number: RR-A3150-2
+  url: "https://www.rand.org/pubs/research_reports/RRA3150-2.html"
