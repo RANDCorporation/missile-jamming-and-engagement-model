@@ -104,7 +104,7 @@ This work was originally shared with the Department of the Air Force on Septembe
 
 For detailed methodology, mathematical formulations, and analysis results, see:
 
-Brien Alkire. *Missile Jamming and Engagement Model*. RAND Corporation, RR-A3150-2, 2025. https://www.rand.org/pubs/research_reports/RRA3150-2.html
+Alkire, Brien, George Nacouzi, Jair Aguirre, and Brian Dolan, A Missile Jamming and Engagement Model, RAND Corporation, RR-A3150-2, 2025. As of March 15, 2026: https://www.rand.org/pubs/research_reports/RRA3150-2.html
 
 The report provides comprehensive background on:
 - Link budget analysis for GPS and IFTU signals under jamming
@@ -125,17 +125,19 @@ Copyright (C) 2025 RAND Corporation. This code is made available under the MIT l
 
 ## Author and Citation
 
-**Author:** Brien Alkire (brien@rand.org), RAND Corporation
+**Code Author:** Brien Alkire (brien@rand.org), RAND Corporation
 
-**To cite this software:**
+Brien Alkire developed the code in this repository. The related report has multiple authors.
 
-Brien Alkire. *Missile Jamming and Engagement Model*. RAND Corporation, RR-A3150-2, 2025. https://www.rand.org/pubs/research_reports/RRA3150-2.html
+**To cite the related report:**
+
+Alkire, Brien, George Nacouzi, Jair Aguirre, and Brian Dolan, A Missile Jamming and Engagement Model, RAND Corporation, RR-A3150-2, 2025. As of March 15, 2026: https://www.rand.org/pubs/research_reports/RRA3150-2.html
 
 **BibTeX:**
 ```bibtex
 @techreport{Alkire2025MJEM,
-  author = {Alkire, Brien},
-  title = {Missile Jamming and Engagement Model},
+  author = {Alkire, Brien and Nacouzi, George and Aguirre, Jair and Dolan, Brian},
+  title = {A Missile Jamming and Engagement Model},
   institution = {RAND Corporation},
   year = {2025},
   type = {Research Report},
@@ -143,6 +145,7 @@ Brien Alkire. *Missile Jamming and Engagement Model*. RAND Corporation, RR-A3150
   url = {https://www.rand.org/pubs/research_reports/RRA3150-2.html}
 }
 ```
+
 
 ---
 
